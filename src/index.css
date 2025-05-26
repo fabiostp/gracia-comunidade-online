@@ -1,57 +1,62 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 0 0% 100%; /* Branco como fallback */
+    --foreground: 340 60% 25%; /* Rosa escuro para texto */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 340 100% 98%; /* Rosa bem clarinho para cards */
+    --card-foreground: 340 60% 25%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 340 100% 98%;
+    --popover-foreground: 340 60% 25%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 340 60% 45%; /* Rosa principal */
+    --primary-foreground: 0 0% 100%; /* Branco */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 340 80% 90%; /* Rosa claro */
+    --secondary-foreground: 340 60% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 340 80% 95%;
+    --muted-foreground: 340 30% 50%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 340 70% 60%; /* Rosa acentuado */
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 340 30% 85%;
+    --input: 340 30% 90%;
+    --ring: 340 70% 60%;
 
     --radius: 0.5rem;
 
+    /* Variáveis de tema personalizadas */
+    --theme-background: 340 100% 99%; /* Rosa ultra claro / Quase branco */
+    --theme-foreground: 340 65% 28%; /* Rosa escuro para texto principal */
+    --theme-primary: 340 60% 40%; /* Rosa principal mais forte */
+    --theme-primary-foreground: 0 0% 100%; /* Branco */
+    --theme-secondary: 340 90% 96%; /* Rosa muito claro para fundos secundários */
+    --theme-accent: 340 75% 55%; /* Rosa vibrante para botões e destaques */
+    
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
+    /* Definir variáveis dark se necessário, por ora manteremos o tema claro */
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
 
@@ -79,6 +84,15 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+
+    /* Variáveis de tema personalizadas para dark mode, se aplicável */
+    --theme-background: 340 10% 15%; 
+    --theme-foreground: 340 80% 90%;
+    --theme-primary: 340 70% 60%;
+    --theme-primary-foreground: 0 0% 10%;
+    --theme-secondary: 340 10% 20%;
+    --theme-accent: 340 80% 70%;
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -94,8 +108,21 @@
   * {
     @apply border-border;
   }
-
   body {
-    @apply bg-background text-foreground;
+    @apply bg-theme-background text-theme-foreground font-open-sans;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  #root {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%; /* Permitir que o conteúdo ocupe toda a largura */
+    margin: 0;
+    padding: 0; /* Remover padding padrão */
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
   }
 }

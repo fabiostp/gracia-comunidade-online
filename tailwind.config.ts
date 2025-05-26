@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -18,6 +19,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+        'playfair': ['"Playfair Display"', 'serif'],
+        'open-sans': ['"Open Sans"', 'sans-serif'],
+      },
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -52,6 +57,13 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+        // Cores personalizadas para o tema da comunidade
+        'theme-primary': 'hsl(var(--theme-primary))', // Rosa mais escuro para texto e elementos principais
+        'theme-primary-foreground': 'hsl(var(--theme-primary-foreground))', // Branco/Creme para texto sobre theme-primary
+        'theme-secondary': 'hsl(var(--theme-secondary))', // Rosa claro para fundos secundários
+        'theme-accent': 'hsl(var(--theme-accent))', // Um tom de rosa vibrante para botões e destaques
+        'theme-background': 'hsl(var(--theme-background))', // Cor de fundo principal (rosa bem clarinho/creme)
+        'theme-foreground': 'hsl(var(--theme-foreground))', // Cor de texto principal sobre o theme-background
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
